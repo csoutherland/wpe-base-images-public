@@ -14,4 +14,6 @@ RUN chmod 0444 \
 		google-cloud-sdk \
 		python3-pip \
 	&& pip3 install awscliv2 \
-	&& apt clean
+	&& apt clean \
+	&& [ -f '/usr/local/bin/aws' ] \
+	|| ln -snf /usr/local/bin/awscliv2 /usr/local/bin/aws
